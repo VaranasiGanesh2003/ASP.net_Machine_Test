@@ -1,0 +1,98 @@
+﻿@model ASP.net_Machine_Test.Models.Product
+
+@{
+    ViewBag.Title = "editProduct";
+}
+<style>
+    body {
+        background: linear-gradient(135deg, #fdfbfb, #ebedee);
+        font-family: 'Segoe UI', sans-serif;
+        padding: 40px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #1565c0;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 1px #bbb;
+    }
+
+    form {
+        background: #ffffff;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #37474f;
+    }
+
+    input[type="text"],
+    select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="submit"],
+    input[type="reset"],
+    .hai {
+        display: inline-block;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+        color: white;
+        background-color: #42a5f5;
+        border: none;
+        transition: background-color 0.3s ease;
+        margin-right: 10px;
+    }
+
+        input[type="submit"]:hover,
+        .hai:hover {
+            background-color: #1e88e5;
+        }
+
+    .cancel-link {
+        background-color: #ef5350;
+    }
+
+        .cancel-link:hover {
+            background-color: #e53935;
+        }
+</style>
+
+<h2>Edit Product</h2>
+@using (Html.BeginForm("updateProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.LabelFor(p => p.productId)<br />
+        @Html.TextBoxFor(p => p.productId, new { @readonly = "true" })
+    </div>
+    <div>
+        @Html.LabelFor(P => P.productName)<br />
+        @Html.TextBoxFor(P => P.productName)
+    </div>
+    <div>
+        @Html.LabelFor(P => P.categoryId)<br />
+        @Html.DropDownList("categoryId", "-select category-")
+    </div>
+    <div class="hai">
+        <input type="submit" value="Update" name="btnUpdate" />
+    </div>
+    <div class="hai" style="color:white">
+        @Html.ActionLink("Cancel", "DisplayProducts")
+    </div>
+}
+

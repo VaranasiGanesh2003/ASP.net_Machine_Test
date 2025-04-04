@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "HOME";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8f9fa, #dbefff);
+            font-family: 'Segoe UI', sans-serif;
+            padding-top: 100px;
+            text-align: center;
+           
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px #ccc;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            color: white;
+        }
+
+        li {
+            margin: 20px 0;
+            color: white;
+        }
+
+        .ganesh {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #42a5f5;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+            .ganesh:hover {
+                background-color: white;
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
+            }
+    </style>
+</head>
+<body >
+    <h1>Administration Panel</h1>
+    <ul style="color:white">
+        <li style="color:white" class="ganesh">@Html.ActionLink("Category Directory", "DisplayCategories", "Category")</li>
+        <li style="color:white" class="ganesh">@Html.ActionLink("Product Directory", "displayProducts", "Product")</li>
+    </ul>
+</body>
+</html>

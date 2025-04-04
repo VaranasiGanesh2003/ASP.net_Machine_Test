@@ -1,0 +1,106 @@
+﻿@model IEnumerable<ASP.net_Machine_Test.Models.Category>
+@{
+    ViewBag.Title = "DisplayCategories";
+}
+<style>
+    body {
+        background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    table {
+        width: 80%;
+        margin: auto;
+        border-collapse: collapse;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: #ffffff;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+    }
+
+    th {
+        background: linear-gradient(to right, #007bff, #00c6ff);
+        color: white;
+        font-size: 18px;
+    }
+
+    td {
+        background-color: #f1f1f1;
+        font-weight: 500;
+    }
+
+    tr:nth-child(even) td {
+        background-color: #e7f1ff;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #343a40;
+        text-shadow: 1px 1px 3px #bbb;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+    .action-links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .add-link {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        background: linear-gradient(to right, #28a745, #7bed9f);
+        color: white;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+    }
+
+        .add-link:hover {
+            background: linear-gradient(to right, #218838, #6dd3a7);
+            transform: translateY(-2px);
+        }
+</style>
+<h2>Category List</h2>
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(c => c.categoryId) </th>
+        <th>@Html.DisplayNameFor(c => c.categoryName) </th>
+        <th>Actions</th>
+    </tr>
+    @foreach(var items in Model)
+     {
+        <tr>
+            <td>@Html.DisplayFor(c=>items.categoryId)</td>
+            <td>@Html.DisplayFor(c=>items.categoryName)</td>
+            <td>
+                @Html.ActionLink("Edit", "EditCategory" ,new { Id=items.categoryId}) |
+                @Html.ActionLink("Delete", "DeleteCategory", new { Id = items.categoryId }, new {onclick= "return confirm('Are you sure of deleting the record?')"})
+            </td>
+        </tr>
+     }
+    <tr>
+        <td colspan="3" align="center">@Html.ActionLink("Add new Category", "AddCategory")</td>
+    </tr>
+</table>
+

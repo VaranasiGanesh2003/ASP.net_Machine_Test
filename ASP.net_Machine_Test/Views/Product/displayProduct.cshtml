@@ -1,0 +1,90 @@
+﻿@model ASP.net_Machine_Test.Models.Product
+
+@{
+    ViewBag.Title = "displayProduct";
+}
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        font-family: 'Segoe UI', sans-serif;
+        padding: 40px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #0d47a1;
+        text-shadow: 1px 1px 2px #aaa;
+    }
+
+    table {
+        width: 60%;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-collapse: separate;
+        border-spacing: 0 15px;
+    }
+
+    td {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+
+        td:first-child {
+            font-weight: bold;
+            color: #0d47a1;
+        }
+
+    tr {
+        background-color: #f1f8e9;
+        border-radius: 8px;
+    }
+
+        tr:hover {
+            background-color: #e8f5e9;
+            transition: background-color 0.3s ease;
+        }
+
+    .back-link {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+        .back-link a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #1b5e20;
+            background-color: #a5d6a7;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+            .back-link a:hover {
+                background-color: #81c784;
+            }
+</style>
+
+<h2>display Product</h2>
+<table>
+    <tr>
+        <td>@Html.LabelFor(c => c.productId)</td>
+        <td>@Model.productId</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(c => c.productName)</td>
+        <td>@Model.productName</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(c => c.categoryId)</td>
+        <td>@Model.categoryId</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(c => c.category.categoryName)</td>
+        <td>@Model.category.categoryName</td>
+    </tr>
+</table>
+

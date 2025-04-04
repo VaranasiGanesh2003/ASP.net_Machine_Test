@@ -1,0 +1,99 @@
+﻿@model ASP.net_Machine_Test.Models.Product
+
+@{
+    ViewBag.Title = "AddProduct";
+}
+<style>
+    body {
+        background: linear-gradient(to right, #f0f4c3, #b2dfdb);
+        font-family: 'Segoe UI', sans-serif;
+        padding: 40px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #2e7d32;
+        text-shadow: 1px 1px 2px #aaa;
+    }
+
+    form {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    div {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #388e3c;
+    }
+
+    input[type="text"], select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        box-shadow: inset 1px 1px 3px #eee;
+    }
+
+    input[type="submit"], input[type="reset"] {
+        padding: 10px 20px;
+        background-color: #81c784;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin-right: 10px;
+    }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #66bb6a;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+        }
+
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .back-link a {
+            color: #00796b;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+            .back-link a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<h2>AddProduct</h2>
+@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.LabelFor(P => P.productName)<br />@Html.TextBoxFor(P => P.productName)
+    </div>
+    <div>
+        @Html.Label("Category Name")<br />
+        @Html.DropDownList("categoryId", "-Select Category-")
+    </div>
+    <div>
+        <input type="submit" value="Save" name="btnSave" />
+        <input type="reset" value="Reset" />
+    </div>
+    <div style="align-content:center">
+        @Html.ActionLink("Back to Product Details", "DisplayProducts")
+    </div>
+   
+}
+
+
